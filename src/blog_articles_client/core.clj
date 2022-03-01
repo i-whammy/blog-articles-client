@@ -15,4 +15,4 @@
 
 (defn execute []
   (let [companies (get-companies)]
-    (map #(:status (put-company %)) companies)))
+    (map (fn [company] {:status (:status (put-company company)) :company company}) companies)))
